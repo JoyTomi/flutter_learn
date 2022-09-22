@@ -1,4 +1,5 @@
 // ignore_for_file: file_names
+import 'dart:developer';
 import 'package:flutter/material.dart';
 
 class HomeDesign extends StatefulWidget {
@@ -34,32 +35,36 @@ class HomeDesignState extends State<HomeDesign> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: ["1", "2", "3", "4"]
-                    .map((e) => Container(
-                        width: 64,
-                        height: 64,
-                        color: Colors.white,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(
-                              Icons.mail,
-                              size: 30,
-                            ),
-                            Container(
-                              height: 8,
-                              color: Colors.white,
-                            ),
-                            Text(
-                              e,
-                              style: const TextStyle(
-                                  color: Colors.black,
-                                  backgroundColor: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500),
-                              textAlign: TextAlign.left,
-                            )
-                          ],
-                        )))
+                    .map((e) => InkWell(
+                        onTap: () {
+                          log(e);
+                        },
+                        child: Container(
+                            width: 64,
+                            height: 64,
+                            color: Colors.white,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(
+                                  Icons.mail,
+                                  size: 30,
+                                ),
+                                Container(
+                                  height: 8,
+                                  color: Colors.white,
+                                ),
+                                Text(
+                                  e,
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      backgroundColor: Colors.white,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500),
+                                  textAlign: TextAlign.left,
+                                )
+                              ],
+                            ))))
                     .toList())),
         SizedBox(
           height: constraints.maxHeight - 114,
@@ -68,7 +73,11 @@ class HomeDesignState extends State<HomeDesign> {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             children: Colors.primaries
-                .map((e) => Container(height: 100, color: e))
+                .map((e) => InkWell(
+                    onTap: () {
+                      log('$e');
+                    },
+                    child: Container(height: 100, color: e)))
                 .toList(),
           ),
         )

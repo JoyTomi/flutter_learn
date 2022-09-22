@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-import 'HomePage.dart';
+import 'Home/HomePage.dart';
 import 'Home/HomeView.dart';
+import 'Game/NotificationDemo.dart';
+import 'Game/GetDemo.dart';
+// ignore: depend_on_referenced_packages
+import 'package:get/get.dart';
+import 'Game/DioDemo.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +20,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
           splashColor: Colors.transparent, highlightColor: Colors.transparent),
@@ -95,9 +100,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List _tabs = [
     HomeView(),
-    HomePage(),
-    HomePage(),
-    HomePage(),
+    const MSNotificationDemo3(),
+    const Home(),
+    const DioDemoView(),
   ];
 
   var currentIndex = 0;

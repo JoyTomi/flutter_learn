@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+//自定义tabbar游标
 class TMTabbarIndicator extends Decoration {
   TabController? tabController;
   double indicatorBottom = 3; // 调整指示器下边距
